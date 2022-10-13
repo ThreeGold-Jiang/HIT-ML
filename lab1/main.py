@@ -95,7 +95,8 @@ def gradient_func(x,y,a,n,M=0):
     X=X.T
     p = np.array(np.random.rand(M+1),ndmin=2).T
     # while abs(residuals_func(p,x,y)>1e-5):
-    while count<=10000:
+    while abs(residuals_func(p,x,y))>1e-5:
+        print(count)
         p = p-a*grad(X,y,p)
         count=count+1
     print("count=",count)
